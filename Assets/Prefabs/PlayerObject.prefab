@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5475028388790903914}
   - component: {fileID: 2138069981357168917}
   - component: {fileID: 3462233533075098729}
+  - component: {fileID: 116134740305744016}
   m_Layer: 8
   m_Name: PlayerObject
   m_TagString: Player
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -6439647
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 1878573612, guid: ddab029dae2c4ca4fa6278e5905c0a67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -159,7 +160,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &2138069981357168917
 Animator:
   serializedVersion: 5
@@ -194,3 +195,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 3
+--- !u!114 &116134740305744016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7789324453884559016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41c791ddd1318844d89faeade78a79bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoints: {fileID: 11400000, guid: 3f2e4a8bc73f0a64ebf4f9643c11f8e4, type: 2}
+  maxHitPoints: 10
+  startingHitPoints: 6
+  healthBarPrefab: {fileID: 4108385032969669455, guid: 9a5fdcdb40fc6ec4ca91246ea83fe85f, type: 3}
