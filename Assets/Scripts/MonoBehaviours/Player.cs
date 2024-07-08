@@ -8,6 +8,7 @@ public class Player : Character
     private HealthBar healthBar;
     [SerializeField] private Inventory inventoryPrefab;
     private Inventory inventory;
+    [SerializeField] private HitPoints hitPoints;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

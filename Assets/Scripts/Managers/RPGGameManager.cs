@@ -6,6 +6,7 @@ public class RPGGameManager : MonoBehaviour
 {
     public static RPGGameManager sharedInstance = null;
 
+    [SerializeField] private RPGCameraManager cameraManager;
     [SerializeField] private SpawnPoint playerSpawnPoint;
 
     private void Awake()
@@ -35,6 +36,7 @@ public class RPGGameManager : MonoBehaviour
         if (playerSpawnPoint != null)
         {
             GameObject player = playerSpawnPoint.SpawnObject();
+            cameraManager.virtualCamera.Follow = player.transform;
         }
     }
 }
