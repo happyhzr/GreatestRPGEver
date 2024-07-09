@@ -11,4 +11,7 @@ public abstract class Character : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    protected abstract void ResetCharacter();
+    public abstract IEnumerator DamageCharacter(int damage, float interval);
 }

@@ -10,6 +10,42 @@ public class Player : Character
     private Inventory inventory;
     [SerializeField] private HitPoints hitPoints;
 
+    public override IEnumerator DamageCharacter(int damage, float interval)
+    {
+        while (true)
+        {
+            hitPoints.value -= damage;
+            if (hitPoints.value < float.Epsilon)
+            {
+                KillCharacter();
+                break;
+            }
+            if (interval > float.Epsilon)
+            {
+                yield return new WaitForSeconds(interval);
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+
+    protected override void KillCharacter()
+    {
+        base.KillCharacter();
+        Destroy(healthBar.gameObject);
+        Destroy(inventory.gameObject);
+    }
+
+    protected override void ResetCharacter()
+    {
+        inventory = Instantiate(inventoryPrefab);
+        hitPoints.value = startingHitPoints;
+        healthBar = Instantiate(healthBarPrefab);
+        healthBar.character = this;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("CanBePickedUp"))
@@ -40,10 +76,6 @@ public class Player : Character
 
     private void Start()
     {
-        inventory = Instantiate(inventoryPrefab);
-        hitPoints.value = startingHitPoints;
-        healthBar = Instantiate(healthBarPrefab);
-        healthBar.character = this;
     }
 
     private bool AdjustHitPoints(int amount)
@@ -55,5 +87,10 @@ public class Player : Character
             return true;
         }
         return false;
+    }
+
+    private void OnEnable()
+    {
+        ResetCharacter();
     }
 }
