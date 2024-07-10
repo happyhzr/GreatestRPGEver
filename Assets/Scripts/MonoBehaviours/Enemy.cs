@@ -41,20 +41,22 @@ public class Enemy : Character
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("collision entered");
         if (collision.gameObject.CompareTag("Player"))
         {
             Player player = collision.gameObject.GetComponent<Player>();
-            if (damageCoroutine == null)
+            if (player != null)
             {
-                damageCoroutine = StartCoroutine(player.DamageCharacter(damageStrength, 1f));
+                if (damageCoroutine == null)
+                {
+
+                    damageCoroutine = StartCoroutine(player.DamageCharacter(damageStrength, 1f));
+                }
             }
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        Debug.Log("collision exited");
         if (collision.gameObject.CompareTag("Player"))
         {
             if (damageCoroutine != null)
