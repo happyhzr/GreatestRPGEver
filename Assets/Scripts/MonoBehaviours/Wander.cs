@@ -18,12 +18,14 @@ public class Wander : MonoBehaviour
     private Transform targetTransform;
     private Vector3 endPosition;
     private float currentAngle;
+    private CircleCollider2D circleCollider;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         currentSpeed = wanderSpeed;
         rb2d = GetComponent<Rigidbody2D>();
+        circleCollider = GetComponent<CircleCollider2D>();
         StartCoroutine(WanderRoutine());
     }
 
@@ -101,5 +103,18 @@ public class Wander : MonoBehaviour
             }
             targetTransform = null;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (circleCollider != null) 
+        {
+            Gizmos.DrawWireSphere(transform.position, circleCollider.radius);
+        }
+    }
+
+    private void Update()
+    {
+        Debug.DrawLine(rb2d.position, endPosition, Color.red);
     }
 }
