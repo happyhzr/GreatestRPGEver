@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -7,6 +8,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private GameObject ammoPrefab;
     private static List<GameObject> ammoPool;
     [SerializeField] private int poolSize;
+    [SerializeField] private float weaponVelocity;
 
     private void Awake()
     {
@@ -46,7 +48,14 @@ public class Weapon : MonoBehaviour
 
     private void FireAmmo()
     {
-
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        GameObject ammo = SpawnAmmo(transform.position);
+        if (ammo != null)
+        {
+            Arc arcScript = ammo.GetComponent<Arc>();
+            float travelDuration = 1f / weaponVelocity;
+            StartCoroutine(arcScript.TravelArc(mousePosition, travelDuration));
+        }
     }
 
     private void OnDestroy()
