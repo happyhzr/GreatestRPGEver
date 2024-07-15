@@ -14,4 +14,11 @@ public abstract class Character : MonoBehaviour
 
     protected abstract void ResetCharacter();
     public abstract IEnumerator DamageCharacter(int damage, float interval);
+
+    protected virtual IEnumerator FlickerCharacter()
+    {
+        GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        GetComponent<SpriteRenderer>().color = Color.white;
+    }
 }

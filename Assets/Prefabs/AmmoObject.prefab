@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1471030868173164086}
   - component: {fileID: 78580043586516462}
   - component: {fileID: -5154115796770490318}
+  - component: {fileID: 464187167630072859}
   m_Layer: 11
   m_Name: AmmoObject
   m_TagString: Untagged
@@ -134,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9793e091a783a2945858d6af5fbd51ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageInflicted: 0
+  damageInflicted: 1
 --- !u!114 &-5154115796770490318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,3 +148,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236430067a4b8f04883ed902c775b7bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &464187167630072859
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581057955298446576}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
